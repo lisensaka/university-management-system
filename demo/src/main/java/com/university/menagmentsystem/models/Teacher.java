@@ -26,6 +26,15 @@ public class Teacher{
     private Department department;
 
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public User getUser() {
         return user;
     }
