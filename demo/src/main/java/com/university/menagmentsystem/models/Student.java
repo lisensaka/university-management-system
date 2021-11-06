@@ -19,8 +19,8 @@ public class Student {
     @OneToOne
     private User user;
 
-    @OneToMany(mappedBy = "student")
-    private Set<StudyField> studyField;
+    @ManyToOne()
+    private StudyField studyField;
 
     @OneToMany(mappedBy = "student")
     private Set<StudentAnswer> studentAnswers;
@@ -76,11 +76,11 @@ public class Student {
         this.user = user;
     }
 
-    public Set<StudyField> getStudyField() {
+    public StudyField getStudyField() {
         return studyField;
     }
 
-    public void setStudyField(Set<StudyField> studyField) {
+    public void setStudyField(StudyField studyField) {
         this.studyField = studyField;
     }
 

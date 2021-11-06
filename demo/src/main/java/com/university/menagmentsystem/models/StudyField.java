@@ -1,6 +1,7 @@
 package com.university.menagmentsystem.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "study_fields")
@@ -13,8 +14,8 @@ public class StudyField {
 
     private double totalCredits;
 
-    @ManyToOne
-    private Student student;
+    @OneToMany(mappedBy = "studyField")
+    private Set<Student> student;
 
     @ManyToOne
     private Department department;
@@ -28,9 +29,7 @@ public class StudyField {
         this.totalCredits = totalCredits;
     }
 
-    public Student getStudent() {
-        return student;
-    }
+
 
     public String getFieldName() {
         return fieldName;
@@ -40,7 +39,11 @@ public class StudyField {
         this.fieldName = fieldName;
     }
 
-    public void setStudent(Student student) {
+    public Set<Student> getStudent() {
+        return student;
+    }
+
+    public void setStudent(Set<Student> student) {
         this.student = student;
     }
 
